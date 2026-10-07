@@ -19,5 +19,19 @@ export function useBahan(dataAwal) {
 
   const reset = () => setDipilih([]);
 
-  return { semua, daftarBahan, dipilih, toggle, reset };
+  const hasil = useMemo(() => {
+    if (dipilih.length === 0) return [];
+    return semua
+      .map((r) => ({
+        recipe: r,
+        cocok: r.jumlahBahanCocok(dipilih),
+        total: r.bahan.length,
+      }))
+      .filter((h) => h.cocok > 0)
+      .sort(
+        (a, b) => b.cocok / b.total - a.cocok / a.total || b.cocok - a.cocok
+      );
+  }, [semua, dipilih]);
+
+  return { semua, daftarBahan, dipilih, toggle, reset, hasil };
 }

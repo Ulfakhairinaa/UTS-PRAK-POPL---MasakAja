@@ -26,4 +26,8 @@ export class Recipe {
       this.bahan.some((b) => b.nama.toLowerCase() === d.toLowerCase())
     );
   }
+
+  jumlahBahanCocok(daftar) {
+    return this.bahan.filter((b) => daftar.includes(b.nama)).length;
+  }
 }
