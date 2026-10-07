@@ -1,6 +1,17 @@
 export default function RecipeFilters({ filters, onChange }) {
   return (
     <div className="mb-6 flex flex-wrap gap-4">
+      <label className="flex min-w-[200px] flex-1 flex-col text-sm">
+        Cari judul resep
+        <input
+          type="text"
+          value={filters.keyword}
+          onChange={(e) => onChange("keyword", e.target.value)}
+          placeholder="contoh: nasi"
+          className="mt-1 rounded border p-2"
+        />
+      </label>
+
       <label className="flex flex-col text-sm">
         Budget maksimal per porsi
         <select
