@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  output: "standalone",
   turbopack: {
     rules: {
       "*.css": {
@@ -11,4 +11,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default nextConfig; 
