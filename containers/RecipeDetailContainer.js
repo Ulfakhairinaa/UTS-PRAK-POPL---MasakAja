@@ -1,4 +1,5 @@
 import RecipeDetail from "@/components/RecipeDetail";
+import PorsiCalculatorContainer from "@/containers/PorsiCalculatorContainer";
 
 const rupiah = (n) => "Rp" + n.toLocaleString("id-ID");
 
@@ -12,6 +13,12 @@ export default function RecipeDetailContainer({ recipe }) {
       totalBiaya={rupiah(recipe.totalBiaya)}
       bahan={recipe.bahan.map((b) => ({ ...b, harga: rupiah(b.harga) }))}
       langkah={recipe.langkah}
+      kalkulator={
+        <PorsiCalculatorContainer
+          biayaPerPorsi={recipe.biayaPerPorsi}
+          porsiAwal={recipe.porsi}
+        />
+      }
     />
   );
 }
