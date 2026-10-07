@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function RecipeDetail({
-  judul, kategori, waktuMasak, porsi, totalBiaya, bahan, langkah,
+  judul, kategori, waktuMasak, porsi, totalBiaya, bahan, langkah, kalkulator,
 }) {
   return (
     <main className="mx-auto max-w-2xl p-6">
@@ -14,11 +14,15 @@ export default function RecipeDetail({
         {kategori} · {waktuMasak} menit · {porsi} porsi · Total {totalBiaya}
       </p>
 
+      {kalkulator}
+
       <h2 className="mt-6 text-xl font-semibold">Bahan</h2>
       <ul className="mt-2 divide-y rounded-lg border">
         {bahan.map((b) => (
           <li key={b.nama} className="flex justify-between p-3">
-            <span>{b.nama} <span className="text-gray-500">({b.jumlah})</span></span>
+            <span>
+              {b.nama} <span className="text-gray-500">({b.jumlah})</span>
+            </span>
             <span>{b.harga}</span>
           </li>
         ))}
