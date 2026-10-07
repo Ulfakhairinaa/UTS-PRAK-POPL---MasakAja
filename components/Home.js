@@ -11,11 +11,27 @@ export default function Home({ populer }) {
           Katalog resep murah untuk anak kos. Cari berdasarkan budget, waktu
           masak, dan bahan yang ada.
         </p>
+
+        <form action="/resep" className="mx-auto mt-6 flex max-w-md gap-2">
+          <input
+            name="q"
+            type="text"
+            placeholder="Cari resep..."
+            className="flex-1 rounded-lg border px-3 py-2"
+          />
+          <button
+            type="submit"
+            className="rounded-lg bg-orange-600 px-4 py-2 text-white hover:bg-orange-700"
+          >
+            Cari
+          </button>
+        </form>
+
         <Link
           href="/resep"
-          className="mt-6 inline-block rounded-lg bg-orange-600 px-5 py-2 text-white hover:bg-orange-700"
+          className="mt-4 inline-block text-sm text-orange-600 hover:underline"
         >
-          Lihat Semua Resep
+          atau lihat semua resep
         </Link>
       </section>
 
