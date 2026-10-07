@@ -26,6 +26,37 @@ export default function RecipeFilters({ filters, onChange }) {
           <option value="20000">≤ Rp20.000</option>
         </select>
       </label>
+
+      <label className="flex flex-col text-sm">
+        Waktu masak
+        <select
+          value={filters.maxWaktu}
+          onChange={(e) => onChange("maxWaktu", e.target.value)}
+          className="mt-1 rounded border p-2"
+        >
+          <option value="">Semua</option>
+          <option value="10">≤ 10 menit</option>
+          <option value="15">≤ 15 menit</option>
+          <option value="20">≤ 20 menit</option>
+          <option value="30">≤ 30 menit</option>
+        </select>
+      </label>
+
+      <label className="flex flex-col text-sm">
+        Kategori
+        <select
+          value={filters.kategori}
+          onChange={(e) => onChange("kategori", e.target.value)}
+          className="mt-1 rounded border p-2"
+        >
+          <option value="">Semua</option>
+          <option value="sarapan">Sarapan</option>
+          <option value="makan berat">Makan berat</option>
+          <option value="camilan">Camilan</option>
+          <option value="tanpa kompor">Tanpa kompor</option>
+          <option value="rice cooker only">Rice cooker only</option>
+        </select>
+      </label>
     </div>
   );
 }
